@@ -17,7 +17,6 @@ public class Main {
             line = br.readLine();
             int numTestCases = Integer.parseInt(line);
 
-            // advance to the url data
             for (int i = 1; i <= numTestCases; i++) {
                 line = br.readLine();
 
