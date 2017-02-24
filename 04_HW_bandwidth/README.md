@@ -2,7 +2,11 @@
 
 Given a graph (V, E) where V is a set of nodes and E is a set of arcs in V×V , and an ordering on the elements in V , then the bandwidth of a node v is defined as the maximum distance in the ordering between v and any node to which it is connected in the graph. The bandwidth of the ordering is then defined as the maximum of the individual bandwidths. For example, consider the graph below:
 
+![](img_1.png?raw=true)
+
 This can be ordered in many ways, two of which are illustrated here:
+
+![](img_2.png?raw=true)
 
 For these orderings, the bandwidths of the nodes (in order) are 6, 6, 1, 4, 1, 1, 6, 6 giving an ordering bandwidth of 6, and 5, 3, 1, 4, 3, 5, 1, 4 giving an ordering bandwidth of 5.
 
