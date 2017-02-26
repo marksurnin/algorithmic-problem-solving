@@ -12,16 +12,17 @@ o        o -- o        o -- o
                \      /
                 o -- o
 
-Input
-The input file will contain one or more test cases.
-The first line of each test case contains two integers: the number of nodes n (2 ≤ n ≤ 25) and the
-number of edges m (1 ≤ m ≤ 25). The next m lines describe the m edges. Each edge is given by the
-numbers of the two nodes connected by it. Nodes are numbered from 0 to n − 1. Edges are undirected.
-Nodes have degrees of three or less. The network is not neccessarily connected.
-Input will be terminated by two values of 0 for n and m.
-Output
+## Input
+
+The input file will contain one or more test cases. The first line of each test case contains two integers: the number of nodes n (2 ≤ n ≤ 25) and the number of edges m (1 ≤ m ≤ 25). The next m lines describe the m edges. Each edge is given by the numbers of the two nodes connected by it. Nodes are numbered from 0 to n − 1. Edges are undirected. Nodes have degrees of three or less. The network is not neccessarily connected. Input will be terminated by two values of 0 for n and m.
+
+## Output
+
 For each test case, print the length of the longest road on a single line.
-Sample Input
+
+## Sample Input
+
+```
 3 2
 0 1
 1 2
@@ -43,6 +44,11 @@ Sample Input
 10 13
 12 14
 0 0
-Sample Output
+```
+
+## Sample Output
+
+```
 2
 12
+```
