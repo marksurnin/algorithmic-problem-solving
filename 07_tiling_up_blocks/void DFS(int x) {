@@ -1,4 +1,0 @@
-void DFS(int x) {
-  boolean[] visited = new boolean[n];
-  do_DFS(int x, visited);
-}
