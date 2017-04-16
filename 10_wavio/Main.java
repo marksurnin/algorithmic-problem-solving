@@ -1,65 +1,57 @@
 import java.io.*;
 import java.util.*;
-import java.math.BigInteger;
 
 public class Main {
 
-  public static int lcm(int a, int b) {
-    // BigInteger A = new BigInteger(String.valueOf(a));
-    // BigInteger B = new BigInteger(String.valueOf(b));
-    // BigInteger gcd_AB = A.gcd(B);
-      // int gcd = 1;
-      // int temp = gcd(a, b);
-      // if (temp > 0) {
-      //   gcd = temp;
-      // }
-    return a * (b / gcd(a, b));
-  }
-
-  public static int gcd(int a, int b) {
-    // if (a < b) {
-    //   int temp = a;
-    //   a = b;
-    //   b = temp;
-    // }
-    // if (b == 0) return a;
-    // else return gcd(b, a%b);
-
-    if (b == 0) return a;
-    else return gcd(b, a%b);
-  }
-
-  public static void main(String[] args) throws IOException {
-    InputStreamReader isr = new InputStreamReader(System.in);
-    BufferedReader br = new BufferedReader(isr);
-    while (true) {
-    // Scanner sc = new Scanner(System.in);
-    // while (sc.hasNext()) {
-      int n = Integer.parseInt(br.readLine());
-      // BigInteger z = BigInteger.ZERO;
-      // BigInteger N = sc.nextBigInteger();
-      if (n == 0) break;
-
-      ArrayList<Integer> divisors = new ArrayList<Integer>();
-      
-      for (int i = 1; i <= n/i; i++) {
-        if ((n % i) == 0) {
-          int div = n / i;
-          divisors.add(i);
-          if (i != div) {
-            divisors.add(div);
-          }
+  public static int[] lis(int[] arr) {
+    int n = arr.length;
+    int longest_so_far = 0;
+    int[] temp = new int[n + 1];
+    Arrays.fill(temp, Integer.MAX_VALUE);
+    int[] lis = new int[n + 1];
+    for (int i = 0; i < n; i++) {
+      int lo = 0;
+      int hi = n - 1;
+      while (lo < hi) {
+        int mid = lo + (hi - lo)/2;
+        if (temp[mid] >= arr[i]) {
+          hi = mid;
+        } else {
+          lo = mid;
         }
       }
-      int ans = 0;
-      for (int i = 0; i < divisors.size(); i++) {
-        for (int j = i; j < divisors.size(); j++) {
-          if (lcm(divisors.get(j), divisors.get(i)) == n) {
-            ans++;
-          }
+
+      if (temp[lo + 1] > arr[i]) {
+        temp[lo + 1] = arr[i];
+        longest_so_far = Math.max(longest_so_far, lo + 1);
+      }
+      lis[i] = longest_so_far;
+    }
+    return lis;
+  }
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    while (sc.hasNext()) {
+      int n = sc.nextInt();
+      int[] forward = new int[n];
+      int[] backward = new int[n];
+      for (int i = 0; i < n; i++) {
+        int x = sc.nextInt();
+        forward[i] = x;
+        backward[n - i - 1] = x;
+      }
+
+      int longest_so_far = 0;
+      int[] lis = lis(forward);
+      int[] dis = lis(backward);
+      for (int i = 0; i < n; i++) {
+        if (Math.min(lis[i], dis[n - i - 1]) > longest_so_far) {
+          longest_so_far = Math.min(lis[i], dis[n - i - 1]);
         }
       }
-      System.out.println(n + " " + ans);
+      // 2n - 1
+      System.out.println(longest_so_far * 2 - 1);
     }
   }
 }
