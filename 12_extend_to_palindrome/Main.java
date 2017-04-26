@@ -17,7 +17,10 @@ public class Main {
       ++i;
       ++j;
       b[i] = j;
-      // System.out.println(i);
+      // for (int x : b) {
+      //   System.out.print(x + " ");
+      // }
+      // System.out.println();
     }
 
   }
@@ -49,48 +52,6 @@ public class Main {
       kmpPreprocess();
       int index = kmpSearch();
       System.out.println(T + P.substring(index));
-
-      // reverse = new StringBuilder(line).reverse().toString();
-      // System.out.println(line);
-      // System.out.println(reverse);
-      // int i, j = 0;
-      // int len = line.length();
-      // int maxJ = 0;
-      // boolean found = true;
-      // for (i = 0; i < len; i++) {
-      //   found = true;
-      //   // if (line.charAt(i) == reverse.charAt(0)) {
-      //   for (j = 0; j < len && found; j++) {
-      //     // if (i+j >= len && found) {
-      //     //   continue;
-      //     // } else if (line.charAt(i+j) != reverse.charAt(j)) {
-      //     //   found = false;
-      //     //   // System.out.println(i + " " + j);
-      //     //   maxJ = Math.max(maxJ, j);
-      //     // }
-
-      //     if (i+j >= len || line.charAt(i+j) != reverse.charAt(j)) {
-      //       found = false;
-      //       // System.out.println(i + " " + j);
-      //       maxJ = Math.max(maxJ, j);
-      //     }
-      //     System.out.println(j);
-      //   }
-      //   // }
-      // }
-      // System.out.println(i + " " + j + " " + len);
-      // if (j == len - 2) {
-      //   System.out.println(line);
-      //   // System.out.println("чикипуки");
-      // } else {
-      //   // System.out.println(maxJ);
-      //   // System.out.println(reverse.substring(maxJ));
-      //   StringBuilder sb = new StringBuilder(line);
-      //   sb = sb.append(reverse.substring(maxJ));
-      //   System.out.println(sb);
-      // }
-      
-      // System.out.println();
       line = br.readLine();
     }
   }
