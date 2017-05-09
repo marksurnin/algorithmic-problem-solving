@@ -122,7 +122,6 @@ public class Main
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-
     int numTestCases = sc.nextInt();
 
     for (int i = 0; i < numTestCases; i++) {
@@ -131,62 +130,14 @@ public class Main
 
       ArrayList<Point> points = new ArrayList<Point>();
 
-      // double sumX = 0.0, sumY = 0.0;
-      // double minX = 1000000001.0, minY = 1000000001.0;
-      // int minId = 100001;
-      // int last = 0;
       for (int j = 0; j < numNails; j++) {
         double x = sc.nextDouble();
         double y = sc.nextDouble();
         points.add(new Point(x, y, j));
-        // sumX += x;
-        // sumY += y;
-        // if (x < minX) {
-        //   minX = x;
-        //   minY = y;
-        //   minId = j;
-        // } else if (x == minX && y < minY) {
-        //   minY = y;
-        //   minId = j;
-        // }
       }
-      // System.out.println(minX + " " + minY + " " + minId);
-
-      // Point start = new Point(0.0, 0.0, -1);
-      // for (int j = 0; j < last; j++) {
-      //   if (points.get(j).id == minId) {
-      //     System.out.println(minId);
-      //     start = points.get(j);
-      //   }
-      // }
-      // System.out.println("S " + start.x + " " + start.y);
-
-      // double midX = sumX / n;
-      // double midY = sumY / n;
-      // System.out.println(midX + " " + midY);
-
-      // // /** Computes the unsigned angle abc */
-      // // static double angle(Point a, Point b, Point c)
-      // // {
-      // //   double d1 = dist(a,b), d2 = dist(b,c);
-      // //   if (d1 < EPS || d2 < EPS) return 0;
-      // //   return Math.acos( ((a.x-b.x)*(c.x-b.x)+(a.y-b.y)*(c.y-b.y))/(d1*d2) );
-      // // }
-
-      // Point xAxis = new Point(1000000001, 0, -1);
-      // for (int x = 0; x < last; x++) {
-      //   Point p1 = points.get(x);
-      //   double angle1 = angle(p1, start, xAxis);
-      //   System.out.println(angle1);
-      // }
 
       ArrayList<Point> convexHull = chull(points);
-      // System.out.println(convexHull.size());
-      // for (Point p : convexHull) {
-      //   System.out.println((int) p.x + " " + (int) p.y);
-      // }
       double convexHullPerimeter = perimeter(convexHull);
-      // System.out.println(convexHullPerimeter);
       ribbonLength = Math.max(ribbonLength, convexHullPerimeter);
       System.out.printf("%.5f\n", ribbonLength);
     }
